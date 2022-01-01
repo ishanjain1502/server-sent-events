@@ -6,18 +6,16 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/status', (req, res) => {
-    res.json({ clients: clients.length });
-})
 
-const PORT = 3001;
+const PORT = 1337;
 
 let clients = [];
-let facts = [];
+let myarr = [];
 
 app.listen(PORT, () => {
     console.log(`Listening on port number = ${PORT}`);
 })
+
 
 function eventHandler(req, res, next) {
     const headers = {
@@ -27,7 +25,7 @@ function eventHandler(req, res, next) {
     };
 
     res.writeHead(200, headers);
-    const data = `joke: ${JSON.stringify(facts)}\n\n`;
+    const data = `data: ${JSON.stringify(myarr)}\n\n`;
 
     res.write(data);
 
@@ -48,15 +46,85 @@ function eventHandler(req, res, next) {
 
 app.get('/events', eventHandler);
 
-function sendEventsToAll(newFact) {
-    clients.forEach(client => client.res.write(`joke: ${JSON.stringify(newFact)}\n\n`));
+function sendEventsToAll(newJoke) {
+    clients.forEach(client => client.res.write(`data: ${JSON.stringify(newJoke)}\n\n`));
 }
 
-async function addFact(req, res, next) {
-    const newFact = req.body;
-    facts.push(newFact);
-    res.json(newFact);
-    return sendEventsToAll(newFact);
+async function addJoke(req, res, next) {
+    const newJoke = await req.body;
+
+    myarr = [...myarr, newJoke];
+    res.json(newJoke);
+    return sendEventsToAll(newJoke);
 }
 
-app.post('/fact', addFact);
+app.get('/status', (req, res) => {
+    res.send(myarr);
+})
+
+app.post('/joke', addJoke);
+app.post('/userjoke', (req, res) => {
+    const userJoke = req.body;
+    myarr.push(req.body);
+    return sendEventsToAll(userJoke);
+})
+
+///////********** */
+
+// const app = require("express")();
+// const bodyParser = require("body-parser");
+// const cors = require("cors");
+
+// app.use(cors());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+
+// let arr = [];
+// let clients = [];
+// app.get("/", (req, res) => {
+//     res.send(JSON.stringify(arr));
+// });
+
+// app.get("/events", (request, response) => {
+//     const headers = {
+//         "Content-Type": "text/event-stream",
+//         Connection: "keep-alive",
+//         "Cache-Control": "no-cache",
+//     };
+//     response.writeHead(200, headers);
+
+//     const data = `data: ${JSON.stringify(arr)}\n\n`;
+
+//     response.write(data);
+
+//     const clientId = Date.now();
+
+//     const newClient = {
+//         id: clientId,
+//         response,
+//     };
+
+//     clients.push(newClient);
+
+//     request.on("close", () => {
+//         console.log(`${clientId} Connection closed`);
+//         clients = clients.filter((client) => client.id !== clientId);
+//     });
+// });
+
+// function sendEventsToAll(newJoke) {
+//     clients.forEach((client) =>
+//         client.response.write(`data: ${JSON.stringify(newJoke)}\n\n`)
+//     );
+// }
+
+// app.post("/jokes", (request, response) => {
+//     const newJoke = request.body;
+//     arr.push(request.body);
+//     response.json(arr);
+//     return sendEventsToAll(newJoke);
+// });
+
+// app.listen(5000, () => {
+//     console.log("Server started on port 5000");
+// });

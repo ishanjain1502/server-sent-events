@@ -1,0 +1,65 @@
+::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* color: #555; */
+  font-size: 25px;
+  line-height: 1.5;
+  margin: 0 auto;
+  background: #e96443;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #904e95, #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+  min-height: 105vh;
+  min-width: 100vw;
+}
+
+h1{
+  text-align: center;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+.stats-table {
+  padding: 1em;
+  
+  margin: auto;
+  text-align: left;
+  width: 85%;
+  padding-left: 2em;
+  margin-top: 2rem;
+  /* border: 0.5px black dashed; */
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.stats-table tbody tr:hover {
+  background-color: rgba(red, green, blue, alpha);
+}
+
+.sendButton{
+  min-height: 15px;
+  border-radius: 2%;
+}
+
+.form{
+  height:5px ;
+  margin: auto;
+  text-align: center;
+  padding: 1em;
+  min-height: 11.50rem;
+  max-width: 18.75rem;
+  /* background-color: #9DBCD4; */
+  background: #a8ff78;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  border-radius: 3px;
+}
+input{
+  min-height: 30px;
+  border-radius: 3px;
+}
