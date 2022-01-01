@@ -23,7 +23,7 @@ function App() {
     }
   }, [listening, jokes]);
 
-  function submitHandler(e) {
+  function formHandler(e) {
     e.preventDefault();
     let str = {
       "joke": usrJoke,
@@ -54,7 +54,7 @@ function App() {
       <header className="App-header">
         <br />
         {/* form------- */}
-        <form className="form" onSubmit={submitHandler}>
+        <form className="form" onSubmit={formHandler}>
           Joke&nbsp;
           <input type="text" placeholder="Joke" value={usrJoke}
             onChange={(event) => setUsrJoke(event.target.value)} />
