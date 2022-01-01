@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       <h1>Joke Monitor &nbsp;👓  &nbsp; </h1>
       <header className="App-header">
-
+        <br />
         {/* form------- */}
         <form className="form" onSubmit={submitHandler}>
           Joke&nbsp;
@@ -67,7 +67,7 @@ function App() {
           <button className="sendButton" type="submit">Send</button>
 
         </form>
-
+        <br />
         <table className="stats-table">
           <thead>
             <tr>
