@@ -9,9 +9,9 @@ body {
   line-height: 1.5;
   margin: 0 auto;
   background: #114357;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #F29492, #3693b8);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #F29492, #2f7f9e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: -webkit-linear-gradient(to left, #F29492, #3886a5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #F29492, #3886a5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
   background-repeat: no-repeat;
   min-height: 105vh;
   min-width: 100vw;
