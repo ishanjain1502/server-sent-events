@@ -9,3 +9,12 @@ It helps in one way communication, and is also used for things like broadcasting
 <h2>What have you made ??</h2>
 I have made a server where you can post your joke which with the help of directly gets stored into the array with the help of server sent event
 <br/>Also the same thing will get updated on the front end too
+<br/><br/>
+<h2>How to use ?</h2>
+<ol>
+  <li>Clone the repository</li>
+  <li>Run npm install (pre-requisite: nodeJS installed n your system)</li>
+  <li>Now run the server from node using "node server.js""</li>
+  <li>And the reactJS server by "npm start"</li><br/>
+</ol>  
+With this you are good to go 🌻
